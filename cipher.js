@@ -1,37 +1,25 @@
 
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
 
-function deCipher(msg) {
-    let deCiphered = '';
-
-    for (let i = 0; i < msg.length; i++) {
-        const char = msg[i];
-        const position = alphabet.indexOf(char);
-        let origninalPosition = alphabet[(position - 3 + alphabet.length) % alphabet.length];
-        if (position == -1) {
-            origninalPosition = char;
-        }
-
-        deCiphered += origninalPosition;
-    }
-
-    document.getElementById('result').innerHTML = deCiphered;
-}
-
-function cipher(msg) {
-    let ciphered = '';
+function cipher(msg, isCiphering, offset) {
+    const alphabet = 'АаБбВвГгДдЕеЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЬьЮюЯяABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 .,!?@#-/';
+    let result = '';
 
     for (let i = 0; i < msg.length; i++) {
-        const char = msg[i];
-        const position = alphabet.indexOf(char);
-        const cipheredPosition = (position + 3) % alphabet.length;
-        let cipheredChar = alphabet[cipheredPosition];
-        if (position == -1) {
-            cipheredChar = char;
-        }
+        const originalChar = msg[i];
+        const originalPosition = alphabet.indexOf(originalChar);
 
-        ciphered += cipheredChar;
+        const newPosition =
+            isCiphering
+                ? (originalPosition + offset)
+                : (originalPosition - offset + alphabet.length);
+
+        const newChar = 
+            originalPosition == -1
+                ? originalChar
+                : alphabet[newPosition % alphabet.length];
+
+        result += newChar;
     }
 
-    document.getElementById('result').innerHTML = ciphered;
+    document.getElementById('result').innerHTML = result;
 }

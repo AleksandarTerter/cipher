@@ -22,7 +22,7 @@
         gap: 1rem;
     }
 
-    textarea, button, p {
+    textarea, button, p, input {
         background: rgba(256,256,256,0.5);
         padding: 1rem;
         border-radius: 1rem;
@@ -31,8 +31,9 @@
 <body>
     <textarea id="text" name="text" rows="4" cols="50"></textarea>
     <div>
-        <button onclick="cipher(document.getElementById('text').value)">Cipher</button>
-        <button onclick="deCipher(document.getElementById('text').value)">Decipher</button>
+        <input type="number" id="offset" name="offset" min="1" max="31">
+        <button onclick="cipher(document.getElementById('text').value, true, +document.getElementById('offset').value)">Cipher</button>
+        <button onclick="cipher(document.getElementById('text').value, false, +document.getElementById('offset').value)">Decipher</button>
     </div>
     <p id="result">Result here...</p>
 
