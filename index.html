@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipher</title>
+</head>
+
+<style>
+    body {
+        background-image: url(https://imgs.search.brave.com/w5LHa9EDx3Rw40Jr9n4Z8Dvh65GGQr--jJLaJFm7F_8/rs:fit:1200:700:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaWRnZXNnLm5l/dC9pbWFnZXMvYXJ0/aWNsZS8yMDIwLzEy/L3NodXR0ZXJzdG9j/a182NzIzOTI3NzYt/MjkuMTIuMjAtd2h5/LWNyeXB0b2dyYXBo/eS1zZXQtdG8tdW5k/ZXJwaW4tMjAyMS1p/dC1zZWN1cml0eS0x/MDA4NzAwMDctbGFy/Z2UuanBn);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        display: flex;
+        flex-direction: column;
+        margin: 5rem;
+        gap: 1rem;
+    }
+
+    textarea, button, p {
+        background: rgba(256,256,256,0.5);
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+</style>
+<body>
+    <textarea id="text" name="text" rows="4" cols="50"></textarea>
+    <div>
+        <button onclick="cipher(document.getElementById('text').value)">Cipher</button>
+        <button onclick="deCipher(document.getElementById('text').value)">Decipher</button>
+    </div>
+    <p id="result">Result here...</p>
+
+    <script src="cipher.js"></script>
+</body>
+
+</html>
